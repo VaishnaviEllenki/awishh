@@ -1,0 +1,203 @@
+body {
+  margin: 0;
+  font-family: Poppins, sans-serif;
+  background: linear-gradient(135deg,#ffc1cc,#ffe4ec,#ffffff);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  overflow: hidden;
+  text-align: center;
+}
+
+/* Glass */
+.glass {
+  background: rgba(255,255,255,0.3);
+  backdrop-filter: blur(15px);
+  border-radius: 20px;
+  padding: 25px;
+  width: 90%;
+  max-width: 380px;
+  box-shadow: 0 8px 25px rgba(255,105,135,0.2);
+}
+
+/* Button */
+button {
+  margin-top: 15px;
+  padding: 12px;
+  width: 100%;
+  border-radius: 25px;
+  border: none;
+  background: #ff4d79;
+  color: white;
+}
+
+/* Name glow */
+.name-glow span {
+  font-size: 26px;
+  color: #ff4d79;
+  margin: 0 3px;
+  opacity: 0;
+  animation: glow 0.6s forwards;
+}
+.name-glow span:nth-child(1){animation-delay:0.3s;}
+.name-glow span:nth-child(2){animation-delay:0.6s;}
+.name-glow span:nth-child(3){animation-delay:0.9s;}
+.name-glow span:nth-child(4){animation-delay:1.2s;}
+
+@keyframes glow {
+  to {
+    opacity: 1;
+    text-shadow: 0 0 10px #ff7aa2;
+  }
+}
+
+/* Background hearts */
+.bg-heart {
+  position: fixed;
+  bottom: 0;
+  color: rgba(146, 6, 41, 0.4);
+  animation: floatUp 8s linear;
+}
+
+@keyframes floatUp {
+  to {
+    transform: translateY(-110vh);
+    opacity: 0;
+  }
+}
+
+/* Loader heart */
+.loader {
+  position: fixed;
+  top:0;left:0;
+  width:100%;height:100%;
+  background:white;
+  display:none;
+  justify-content:center;
+  align-items:center;
+  flex-direction:column;
+}
+
+.heart-loader {
+  width:40px;height:40px;
+  background:#ff4d79;
+  transform:rotate(-45deg);
+  animation:beat 1s infinite;
+}
+.heart-loader:before,
+.heart-loader:after{
+  content:"";
+  width:40px;height:40px;
+  background:#ff4d79;
+  border-radius:50%;
+  position:absolute;
+}
+.heart-loader:before{top:-20px;}
+.heart-loader:after{left:20px;}
+
+@keyframes beat {
+  50% { transform:rotate(-45deg) scale(1.2); }
+}
+
+/* Confetti */
+.confetti {
+  position: fixed;
+  top: -10px;
+  width: 8px;
+  height: 8px;
+  background: #ff4d79;
+  animation: fall linear forwards;
+}
+@keyframes fall {
+  to { transform: translateY(100vh); }
+}
+/* Background Floating Hearts */
+.bg-heart {
+  position: fixed;
+  bottom: -20px;
+  color: rgba(255, 77, 121, 0.4);
+  animation: floatUp 7s linear;
+  z-index: 0;
+  pointer-events: none;
+}
+
+@keyframes floatUp {
+  from {
+    transform: translateY(0);
+    opacity: 1;
+  }
+  to {
+    transform: translateY(-110vh);
+    opacity: 0;
+  }
+}
+
+/* Keep glass above hearts */
+.glass {
+  position: relative;
+  z-index: 2;
+}
+/* Full screen loader */
+.page-loader {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: #ffffff;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  z-index: 9999;
+  transition: opacity 0.6s ease;
+}
+
+/* Heart shape */
+.loader-heart {
+  position: relative;
+  width: 50px;
+  height: 45px;
+  background: #ff4d79;
+  transform: rotate(-45deg);
+  animation: heartbeat 3s infinite;
+}
+
+.loader-heart::before,
+.loader-heart::after {
+  content: "";
+  position: absolute;
+  width: 50px;
+  height: 45px;
+  background: #ff4d79;
+  border-radius: 50%;
+}
+
+.loader-heart::before {
+  top: -25px;
+  left: 0;
+}
+
+.loader-heart::after {
+  left: 25px;
+  top: 0;
+}
+
+/* Heart animation */
+@keyframes heartbeat {
+  0%, 100% {
+    transform: rotate(-45deg) scale(1);
+  }
+  50% {
+    transform: rotate(-45deg) scale(1.2);
+  }
+}
+
+/* Loader text */
+.page-loader p {
+  margin-top: 15px;
+  color: #ff4d79;
+  font-size: 14px;
+}
+
